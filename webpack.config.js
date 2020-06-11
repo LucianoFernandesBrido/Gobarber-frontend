@@ -4,7 +4,7 @@ module.exports ={
   entry:path.resolve(__dirname,'src', 'index.js'),
   output:{
     path:path.resolve(__dirname, 'public'),
-    filename: 'bundle'
+    filename: 'bundle.js'
   },
   devServer:{
     contentBase:path.resolve(__dirname,"public"),
@@ -25,6 +25,11 @@ module.exports ={
           { loader:'style-loader'},
           { loader:'css-loader' },
         ]
+      },{
+        test:  /.*\.(gif|png|jpe?g)$/i,
+        use: {
+          loader: 'file-loader'
+        }
       }
     ]
   }
